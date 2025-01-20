@@ -1,5 +1,6 @@
+import fs from 'fs';
 import { PATH_DB } from '../constants/contacts.js';
-import { writeFile } from "node:fs/promises";
 
-
-export const writeContacts = updatedContacts => writeFile(PATH_DB, JSON.stringify(updatedContacts, null, 2));
+export const writeContacts = async (updatedContacts) => {
+  fs.writeFileSync(PATH_DB, JSON.stringify(updatedContacts, null, 2), 'utf-8');
+};
